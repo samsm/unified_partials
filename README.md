@@ -4,9 +4,9 @@ This project rocks and uses MIT-LICENSE.
 
 ## Real quick
 
+```ruby
 # use
 
-```ruby
 attribute_display book, :title, :with => :heading
 
 # instead of ...
