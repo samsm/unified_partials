@@ -4,10 +4,12 @@ This project rocks and uses MIT-LICENSE.
 
 ## Real quick
 
+# use
+
 ```ruby
 attribute_display book, :title, :with => :heading
 
-# becomes ...
+# instead of ...
 
 label = render partial: "attribute_presentation/label",
                locals:  {name: :title}
@@ -25,12 +27,7 @@ render partial: "attribute_presentation/heading",
 
 ## What's the big idea?
 
-I want to make the "easy" parts of apps as easy as possible. I've found that apps often involve a number of simple crud endpoints that individually are not very hard to create.
-
-However, while these endpoints are not individually very difficult, they pose a challenge when it's desired for the site to have a consistent look and feel. 
-
-An example helps explain ...
-
+Site-wide view component reuse.
 
 Let's say a site generally displays attributes like so:
 
@@ -55,7 +52,7 @@ Later, it's decided, for well-founded design reasons, to change this to:
 </div>
 ```
 
-In this scenario, the change is sweeping. Pretty much every attribute in the site needs to change to fit a new stylesheet. This might be a real pain, one that discourages agressive restyling.
+In this scenario, the change is sweeping. Pretty much every attribute in the site needs to change to fit a new stylesheet. This might be a real pain, one that discourages aggressive restyling.
 
 Unified partials works like this:
 
@@ -67,3 +64,7 @@ Unified partials works like this:
 In the above case, the partial `attribute_presentation/_heading` is used to display `book.title`. It is wrapped by `attribute_presentation/_layout`. `attribute_presentation/default` is used for `book.author`.
 
 The gem provides a few partials to get you started, but these can be overridden in your app by adding files to `app/views/attribute_presentation/`.
+
+## What's missing?
+
+Much, I'm sure, but I should at least backfill tests if this is a viable approach/project.
